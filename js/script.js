@@ -54,6 +54,99 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* -------------------------------------------------------------------
+     2. MOBILE NAVIGATION HAMBURGER MENU
+     ------------------------------------------------------------------- */
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  const navItems = document.querySelectorAll('.nav-link');
+
+  if (navToggle && navLinks) {
+    const toggleMenu = (open) => {
+      const isOpen = open !== undefined ? open : !navLinks.classList.contains('open');
+      navLinks.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      
+      // Update hamburger icon lines
+      const top = document.getElementById('nav-line-top');
+      const mid = document.getElementById('nav-line-mid');
+      const bot = document.getElementById('nav-line-bot');
+
+      if (top && mid && bot) {
+        if (isOpen) {
+          top.setAttribute('y1', '18');
+          top.setAttribute('y2', '6');
+          mid.style.opacity = '0';
+          bot.setAttribute('y1', '6');
+          bot.setAttribute('y2', '18');
+        } else {
+          top.setAttribute('y1', '6');
+          top.setAttribute('y2', '6');
+          mid.style.opacity = '1';
+          bot.setAttribute('y1', '18');
+          bot.setAttribute('y2', '18');
+        }
+      }
+    };
+
+    navToggle.addEventListener('click', () => toggleMenu());
+
+    // Close menu when clicking any nav link
+    if (navItems.length > 0) {
+      navItems.forEach((link) => {
+        link.addEventListener('click', () => {
+          if (navLinks.classList.contains('open')) {
+            toggleMenu(false);
+          }
+        });
+      });
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (
+        navLinks.classList.contains('open') &&
+        !navLinks.contains(e.target) &&
+        !navToggle.contains(e.target)
+      ) {
+        toggleMenu(false);
+      }
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        toggleMenu(false);
+      }
+    });
+  }
+
+  /* -------------------------------------------------------------------
+     3. SCROLL SPY FOR ACTIVE NAVIGATION LINK
+     ------------------------------------------------------------------- */
+  const sections = document.querySelectorAll('section[id]');
+
+  const highlightNavOnScroll = () => {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+    sections.forEach((section) => {
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 120;
+      const sectionId = section.getAttribute('id');
+      const targetNavLink = document.querySelector(`.nav-link[href*="${sectionId}"]`);
+
+      if (targetNavLink) {
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          targetNavLink.classList.add('active');
+        } else {
+          targetNavLink.classList.remove('active');
+        }
+      }
+    });
+  };
+
+  window.addEventListener('scroll', highlightNavOnScroll, { passive: true });
+
+  /* -------------------------------------------------------------------
      4. SCROLL REVEAL ANIMATIONS (INTERSECTION OBSERVER)
      ------------------------------------------------------------------- */
   const revealElements = document.querySelectorAll('.reveal');
