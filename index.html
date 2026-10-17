@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Nabin Tamang | BCA Student & Aspiring Software Developer</title>
+  <meta name="title" content="Nabin Tamang | BCA Student & Aspiring Software Developer">
+  <meta name="description"
+    content="Portfolio of Nabin Tamang, a Bachelor of Computer Applications (Honors) 4th-year student at Don Bosco College Maram, specializing in Web Development, Python, Flask, SQL, and Cybersecurity.">
+  <meta name="keywords"
+    content="Nabin Tamang, Software Developer, BCA Student, Python, Flask, Web Development, Cybersecurity, Don Bosco College Maram, Portfolio">
+  <meta name="author" content="Nabin Tamang">
+  <meta name="theme-color" content="#0b0f19">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tmgnabin.github.io/">
+  <meta property="og:title" content="Nabin Tamang | BCA Student & Aspiring Software Developer">
+  <meta property="og:description"
+    content="Explore projects, skills, education, and resume of Nabin Tamang. Passionate about Web Development, Python, and Cybersecurity.">
+  <meta property="og:image" content="assets/images/profile.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nabin Tamang | BCA Student & Aspiring Software Developer">
+  <meta name="twitter:description"
+    content="Explore projects, skills, education, and resume of Nabin Tamang. Passionate about Web Development, Python, and Cybersecurity.">
+  <meta name="twitter:image" content="assets/images/profile.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/expense-tracker.svg">
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Prevent Theme Flash (FOUC) Script -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+      }
+    })();
+  </script>
+</head>
+
+<body>
+
+  <!-- =================================================================
+       1. STICKY NAVBAR
+       ================================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Nabin Tamang Home">
+        <img src="assets/images/expense-tracker.svg" alt="" class="nav-logo-img" width="36" height="36">
+        <span>Nabin Tamang</span>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <!-- Mobile Resume Actions -->
+          <li class="mobile-only" style="display: none;">
+            <a href="assets\resume.pdf" download="Nabin_Tamang_Resume.pdf" class="btn btn-primary btn-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download Resume
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Resume Buttons + Theme Toggle + Mobile Hamburger) -->
+      <div class="nav-actions">
+        <!-- Resume Actions (Desktop) -->
+        <a href="assets/resume.pdf" download="Nabin_Tamang_Resume.pdf" class="btn btn-primary btn-sm nav-resume-btn"
+          id="nav-download-resume-btn" title="Download Nabin's Resume">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span>Resume</span>
+        </a>
+
+        <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer"
+          class="btn btn-secondary btn-sm nav-view-resume-btn" id="nav-view-resume-btn" title="View Resume in New Tab">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+          <span>View</span>
+        </a>
+
+        <!-- Light / Dark Mode Toggle -->
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme"
+          title="Toggle theme">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu"
+          aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12" id="nav-line-mid"></line>
+            <line x1="3" y1="6" x2="21" y2="6" id="nav-line-top"></line>
+            <line x1="3" y1="18" x2="21" y2="18" id="nav-line-bot"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =================================================================
+         2. HERO SECTION
+         ================================================================= -->
+    <section class="section hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="hero-status-pill">
+            <span class="status-dot"></span>
+            <span>Available for Internships &amp; Entry Roles &bull; Class of 2027</span>
+          </div>
+
+          <p class="hero-greeting">Hi, I'm</p>
+          <h1 class="hero-name">Nabin Tamang</h1>
+
+          <h2 class="hero-title">
+            Bachelor of Computer Applications <span class="gradient-text">|</span> Aspiring Software Developer
+          </h2>
+
+          <p class="hero-tagline">
+            I build responsive, dependable web applications and explore modern cybersecurity practices. Focused on
+            Python, Flask, SQL, and Linux to engineer clean solutions for everyday challenges.
+          </p>
+
+          <!-- Call to Action Buttons -->
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary" id="hero-view-projects-btn">
+              <span>View Projects</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+
+            <a href="assets/resume.pdf" download="Nabin_Tamang_Resume.pdf" class="btn btn-secondary"
+              id="hero-download-resume-btn" title="Download Resume PDF">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              <span>Download Resume</span>
+            </a>
+
+            <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline"
+              id="hero-view-resume-btn" title="View Resume in Browser">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span>View Resume</span>
+            </a>
+
+            <a href="#contact" class="btn btn-outline" id="hero-contact-btn">
+              <span>Contact Me</span>
+            </a>
+          </div>
+
+          <!-- Social Icon Links -->
+          <div class="hero-socials">
+            <span class="hero-social-label">Connect</span>
+
+            <a href="https://github.com/tmgnabin" target="_blank" rel="noopener noreferrer" class="social-link"
+              id="hero-github-link" aria-label="Nabin Tamang's GitHub Profile">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+            </a>
+
+            <a href="https://www.linkedin.com/in/nabin-tamang-7bb16a444" target="_blank" rel="noopener noreferrer"
+              class="social-link" id="hero-linkedin-link" aria-label="Nabin Tamang's LinkedIn Profile">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+
+            <a href="mailto:tmgnabin932@gmail.com" class="social-link" id="hero-email-link"
+              aria-label="Email Nabin Tamang" title="tmgnabin932@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Showcase Card (Dev Profile Widget) -->
+        <div class="hero-visual reveal">
+          <div class="hero-visual-card">
+            <div class="window-header">
+              <div class="window-dots">
+                <span class="window-dot dot-red"></span>
+                <span class="window-dot dot-yellow"></span>
+                <span class="window-dot dot-green"></span>
+              </div>
+              <span class="window-title">developer_profile.py</span>
+              <span style="font-size: var(--text-xs); color: var(--accent); font-family: var(--font-mono);">Python
+                3.12</span>
+            </div>
+            <div class="window-content">
+              <p><span class="code-comment"># Nabin Tamang | Student &amp; Developer Profile</span></p>
+              <p><span class="code-keyword">class</span> <span class="code-prop">Developer</span>:</p>
+              <p style="padding-left: 1.5rem;"><span class="code-keyword">def</span> <span
+                  class="code-prop">__init__</span>(self):</p>
+              <p style="padding-left: 3rem;">self.name = <span class="code-str">"Nabin Tamang"</span></p>
+              <p style="padding-left: 3rem;">self.status = <span class="code-str">"4th Year BCA (Honors)"</span></p>
+              <p style="padding-left: 3rem;">self.college = <span class="code-str">"Don Bosco College Maram"</span></p>
+              <p style="padding-left: 3rem;">self.cgpa = <span class="code-num">6.85</span> <span class="code-comment">#
+                  Grade A</span></p>
+              <p style="padding-left: 3rem;">self.core_stack = [<span class="code-str">"Python"</span>, <span
+                  class="code-str">"Flask"</span>, <span class="code-str">"SQL"</span>, <span
+                  class="code-str">"Linux"</span>]</p>
+              <p style="padding-left: 3rem;">self.focus = [<span class="code-str">"Web Dev"</span>, <span
+                  class="code-str">"Cybersecurity"</span>]</p>
+              <p style="padding-left: 1.5rem;"><span class="code-keyword">def</span> <span
+                  class="code-prop">ready_to_contribute</span>(self):</p>
+              <p style="padding-left: 3rem;"><span class="code-keyword">return</span> <span
+                  class="code-keyword">True</span></p>
+            </div>
+            <div class="quick-meta-bar">
+              <div class="meta-box">
+                <div class="meta-box-label">Academic Grade</div>
+                <div class="meta-box-value">6.85 CGPA &bull; Grade A</div>
+              </div>
+              <div class="meta-box">
+                <div class="meta-box-label">Specialization</div>
+                <div class="meta-box-value">Web Dev &amp; Security</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         3. ABOUT SECTION
+         ================================================================= -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">Background &amp; Academic Focus</h2>
+          <p class="section-desc">Passionate learner dedicated to creating clean code and understanding how digital
+            systems are built and secured.</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Profile Photo Frame -->
+          <div class="about-photo-wrapper reveal">
+            <div class="about-photo-frame">
+              <img src="assets/images/profile.jpg" alt="Nabin Tamang - Professional Headshot" width="400" height="400"
+                loading="lazy">
+            </div>
+            <div class="about-photo-badge">
+              <div class="about-badge-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div>
+                <div class="about-badge-text">Web Dev &amp; Cybersecurity</div>
+                <div class="about-badge-sub">Don Bosco College Maram</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio & Quick-Stat Cards -->
+          <div class="about-content reveal">
+            <p class="about-bio-text">
+              I'm a <strong>Bachelor of Computer Applications (Honors)</strong> student passionate about <strong>Web
+                Development and Cybersecurity</strong>. I enjoy building responsive websites, exploring new
+              technologies, and learning how to secure digital systems.
+            </p>
+            <p class="about-bio-text">
+              With skills in <strong>HTML, CSS, Python, SQL, and Linux</strong>, I'm continuously improving my
+              development and problem solving abilities while working on practical projects. My goal is to build useful
+              web applications and develop strong cybersecurity skills.
+            </p>
+
+            <!-- Quick-Stat Cards (4 cards) -->
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                  </svg>
+                </div>
+                <div class="stat-label">Degree</div>
+                <div class="stat-value">BCA (Honors)</div>
+                <div class="stat-sub">Computer Applications</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                  </svg>
+                </div>
+                <div class="stat-label">Institution</div>
+                <div class="stat-value">Don Bosco College</div>
+                <div class="stat-sub">Autonomous &bull; Maram</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                </div>
+                <div class="stat-label">SGPA / CGPA</div>
+                <div class="stat-value">6.85 <span style="color: var(--success); font-size: var(--text-sm);">(Grade
+                    A)</span></div>
+                <div class="stat-sub">Consistent Academic Record</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                </div>
+                <div class="stat-label">Timeline</div>
+                <div class="stat-value">4th Year &bull; 2027</div>
+                <div class="stat-sub">Expected Graduation Year</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         4. SKILLS SECTION
+         ================================================================= -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Technical Competencies</span>
+          <h2 class="section-title">Skills &amp; Technologies</h2>
+          <p class="section-desc">Technologies, frameworks, and developer environments I utilize to build applications
+            and investigate systems.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Category 1: Programming Languages -->
+          <div class="skill-category-card reveal">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="skill-cat-title">Languages</h3>
+                <span style="font-size: var(--text-xs); color: var(--text-muted);">Core logic &amp; syntax</span>
+              </div>
+            </div>
+            <div class="skill-chips-wrap">
+              <div class="skill-chip"><span class="skill-chip-dot"></span>Python</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span>HTML5</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span>CSS3</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span>SQL</div>
+            </div>
+          </div>
+
+          <!-- Category 2: Frameworks & Libraries -->
+          <div class="skill-category-card reveal">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                  <polyline points="2 17 12 22 22 17" />
+                  <polyline points="2 12 12 17 22 12" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="skill-cat-title">Frameworks</h3>
+                <span style="font-size: var(--text-xs); color: var(--text-muted);">Web architectures</span>
+              </div>
+            </div>
+            <div class="skill-chips-wrap">
+              <div class="skill-chip"><span class="skill-chip-dot"></span>Flask (Python)</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span>Jinja2 Templates</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span>RESTful Routing</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span>SQLite / MySQL</div>
+            </div>
+          </div>
+
+          <!-- Category 3: Tools & OS -->
+          <div class="skill-category-card reveal">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="skill-cat-title">Tools &amp; Environments</h3>
+                <span style="font-size: var(--text-xs); color: var(--text-muted);">Development &amp; Systems</span>
+              </div>
+            </div>
+            <div class="skill-chips-wrap">
+              <div class="skill-chip"><span class="skill-chip-dot"></span>Git</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span>GitHub</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span>VS Code</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span>Linux (Terminal &amp; Bash)</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span>Kali Linux</div>
+            </div>
+          </div>
+
+          <!-- Category 4: Domains & Problem Solving -->
+          <div class="skill-category-card reveal">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="skill-cat-title">Focus &amp; Practices</h3>
+                <span style="font-size: var(--text-xs); color: var(--text-muted);">Core capabilities</span>
+              </div>
+            </div>
+            <div class="skill-chips-wrap">
+              <div class="skill-chip"><span class="skill-chip-dot"></span>Web Development</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span>Cybersecurity Fundamentals</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span>Database Modeling</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span>Problem Solving</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         5. PROJECTS SECTION
+         ================================================================= -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Featured Work</span>
+          <h2 class="section-title">Projects</h2>
+          <p class="section-desc">Practical software engineering projects built to solve genuine personal and
+            organizational needs.</p>
+        </div>
+
+        <div class="projects-container">
+          <!-- Featured Project 1: Personal Expense Tracker -->
+          <article class="project-card reveal" id="project-expense-tracker">
+            <div class="project-image-box">
+              <span class="project-badge-featured">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                Featured Project
+              </span>
+              <img src="assets/images/expense-tracker .jpg" alt="Personal Expense Tracker Dashboard Preview" width="600"
+                height="340" loading="lazy">
+            </div>
+
+            <div class="project-info-box">
+              <div class="project-top">
+                <div class="project-type-tag">Full-Stack Web Application</div>
+                <h3 class="project-title">Personal Expense Tracker</h3>
+                <p class="project-summary">
+                  A web-based application designed to help users record daily expenses, manage personal finances, and
+                  track spending in one place. Built with Python and Flask for a reliable, browser-accessible financial
+                  management workflow.
+                </p>
+
+                <!-- Project Features -->
+                <ul class="project-features-list">
+                  <li class="project-feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    <span>Record and manage individual income and daily expenses</span>
+                  </li>
+                  <li class="project-feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    <span>Categorize transactions (Groceries, Housing, Transport, etc.)</span>
+                  </li>
+                  <li class="project-feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    <span>View calculated expense summaries, reports, and balance breakdowns</span>
+                  </li>
+                  <li class="project-feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    <span>Responsive interface accessible through any modern web browser</span>
+                  </li>
+                </ul>
+
+                <!-- Tech Tags -->
+                <div class="project-tech-tags">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Flask</span>
+                  <span class="tech-tag">HTML5</span>
+                  <span class="tech-tag">CSS3</span>
+                  <span class="tech-tag">MySQL / SQLite</span>
+                  <span class="tech-tag">Git</span>
+                  <span class="tech-tag">GitHub</span>
+                </div>
+              </div>
+
+              <!-- Project Action Buttons -->
+              <div class="project-actions">
+                <a href="https://github.com/tmgnabin/expense2.0.git" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-primary btn-sm" id="btn-project-repo">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                  <span>View Repository</span>
+                </a>
+
+                <a href="https://github.com/tmgnabin/expense2.0" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-secondary btn-sm" id="btn-project-demo">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  <span>Source &amp; Documentation</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Ongoing & Upcoming Projects Banner -->
+          <div class="upcoming-projects-banner reveal">
+            <div class="upcoming-info">
+              <h4>More Projects Under Active Development</h4>
+              <p>Currently researching and building tools in Linux network diagnostics, system security auditing
+                scripts, and responsive full-stack applications. Code repositories are updated continuously on GitHub.
+              </p>
+            </div>
+            <div>
+              <a href="https://github.com/tmgnabin?tab=repositories" target="_blank" rel="noopener noreferrer"
+                class="btn btn-outline btn-sm">
+                <span>Browse All on GitHub</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         6. EDUCATION & ACHIEVEMENTS SECTION
+         ================================================================= -->
+    <section class="section education-section" id="education">
+      <div class="container education-container">
+        <div class="section-header reveal">
+          <span class="section-tag">Academic Journey</span>
+          <h2 class="section-title">Education &amp; Achievements</h2>
+          <p class="section-desc">Formal coursework, academic standing, and practical skill milestones.</p>
+        </div>
+
+        <div class="timeline">
+          <!-- Timeline Item 1: Degree -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-degree">Bachelor of Computer Applications (Honors)</h3>
+                  <div class="timeline-institution">Don Bosco College (Autonomous) Maram</div>
+                </div>
+                <span class="timeline-period">2023 &ndash; 2027 (Expected)</span>
+              </div>
+
+              <div class="timeline-grades-pill">
+                <span>SGPA / CGPA:</span> 6.85 &bull; Grade: A (4th Year)
+              </div>
+
+              <p class="timeline-details">
+                Pursuing an honors degree in Computer Applications with an emphasis on practical programming, database
+                design, computer networks, and modern system architectures. Actively engaging in coursework and
+                collaborative lab practicals.
+              </p>
+
+              <div class="coursework-title">Relevant Core Coursework:</div>
+              <div class="coursework-chips">
+                <span class="course-chip">Data Structures &amp; Algorithms</span>
+                <span class="course-chip">Database Management Systems (SQL)</span>
+                <span class="course-chip">Object-Oriented Programming (Python)</span>
+                <span class="course-chip">Web Technologies &amp; Design</span>
+                <span class="course-chip">Operating Systems &amp; Linux Administration</span>
+                <span class="course-chip">Computer Networks &amp; Security Principles</span>
+                <span class="course-chip">Software Engineering Fundamentals</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2: Achievements & Extracurricular Milestones -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-degree">Technical &amp; Practical Milestones</h3>
+                  <div class="timeline-institution">Self-Directed Learning &amp; Academic Projects</div>
+                </div>
+                <span class="timeline-period">Ongoing</span>
+              </div>
+
+              <p class="timeline-details">
+                Demonstrated commitment to continuous skill expansion outside standard curriculum boundaries:
+              </p>
+
+              <ul
+                style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.5rem; font-size: var(--text-sm); color: var(--text-secondary);">
+                <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                  <span style="color: var(--accent); font-weight: bold;">&bull;</span>
+                  <span><strong>Full-Stack Project Delivery:</strong> Engineered and structured the Personal Expense
+                    Tracker with Flask, dynamic database storage, and responsive UI components.</span>
+                </li>
+                <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                  <span style="color: var(--accent); font-weight: bold;">&bull;</span>
+                  <span><strong>Linux &amp; Security Lab Environments:</strong> Hands-on exploration with Kali Linux
+                    tools, bash terminal utilities, user permissions, and basic penetration testing concepts.</span>
+                </li>
+                <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                  <span style="color: var(--accent); font-weight: bold;">&bull;</span>
+                  <span><strong>Git Version Control:</strong> Implementing clean branch-based version control workflows
+                    and repository documentation for open source and team projects.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         7. CONTACT SECTION
+         ================================================================= -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title">Let's Connect</h2>
+          <p class="section-desc">Open to software development opportunities, internships, project collaborations, and
+            conversations on web tech and cybersecurity.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Contact Details & Resume Action Box -->
+          <div class="contact-info-panel reveal">
+            <!-- Email Item -->
+            <div class="contact-card-item">
+              <div class="contact-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="contact-card-details">
+                <div class="contact-card-label">Direct Email</div>
+                <a href="mailto:tmgnabin932@gmail.com" class="contact-card-value"
+                  id="contact-email-link">tmgnabin932@gmail.com</a>
+              </div>
+              <button type="button" class="copy-btn" id="copy-email-btn" title="Copy email address to clipboard"
+                aria-label="Copy email address">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- LinkedIn Item -->
+            <div class="contact-card-item">
+              <div class="contact-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+              </div>
+              <div class="contact-card-details">
+                <div class="contact-card-label">LinkedIn Profile</div>
+                <a href="https://www.linkedin.com/in/nabin-tamang-7bb16a444" target="_blank" rel="noopener noreferrer"
+                  class="contact-card-value">nabin-tamang-7bb16a444</a>
+              </div>
+            </div>
+
+            <!-- GitHub Item -->
+            <div class="contact-card-item">
+              <div class="contact-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+              </div>
+              <div class="contact-card-details">
+                <div class="contact-card-label">GitHub Repository</div>
+                <a href="https://github.com/tmgnabin" target="_blank" rel="noopener noreferrer"
+                  class="contact-card-value">github.com/tmgnabin</a>
+              </div>
+            </div>
+
+            <!-- Resume Download Box in Contact Section -->
+            <div class="resume-download-card">
+              <h4>Need a copy of my Resume?</h4>
+              <p>Download my updated curriculum vitae or preview the document directly in a new browser tab.</p>
+              <div class="resume-actions-group">
+                <a href="assets/resume.pdf" download="Nabin_Tamang_Resume.pdf" class="btn btn-primary btn-sm"
+                  id="contact-download-resume-btn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  <span>Download Resume PDF</span>
+                </a>
+                <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm"
+                  id="contact-view-resume-btn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  <span>View in Browser</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Contact Message Form UI -->
+          <div class="contact-form-card reveal">
+            <h3 class="contact-form-title">Send a Direct Message</h3>
+            <p class="contact-form-subtitle">Fill out the form below or reach me directly at tmgnabin932@gmail.com.</p>
+
+            <form id="contact-form" novalidate>
+              <div class="form-group">
+                <label for="form-name" class="form-label">Full Name *</label>
+                <input type="text" id="form-name" name="name" class="form-input" placeholder="e.g. Alex Mercer"
+                  required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email" class="form-label">Email Address *</label>
+                <input type="email" id="form-email" name="email" class="form-input" placeholder="alex@company.com"
+                  required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-subject" class="form-label">Subject *</label>
+                <input type="text" id="form-subject" name="subject" class="form-input"
+                  placeholder="Project inquiry / Internship opportunity" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-message" class="form-label">Message *</label>
+                <textarea id="form-message" name="message" class="form-textarea"
+                  placeholder="Hello Nabin, I'd like to talk about..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="btn-submit-form" style="width: 100%;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+                <span>Send Message</span>
+              </button>
+
+              <p class="form-footnote">
+                Pre-configured with direct mailto / Formspree action. No spam guaranteed.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =================================================================
+       8. FOOTER
+       ================================================================= -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <img src="assets/images/expense-tracker.svg" alt="" class="footer-logo-img" width="36" height="36">
+            <span>Nabin Tamang</span>
+          </div>
+          <div class="footer-tagline">BCA (Honors) Student &bull; Aspiring Software Developer &bull; Class of 2027</div>
+        </div>
+
+        <ul class="footer-nav">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; <span id="current-year">2026</span> Nabin Tamang. Built with clean HTML5, CSS3, &amp; Vanilla
+          JavaScript.
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/tmgnabin" target="_blank" rel="noopener noreferrer" class="footer-social-icon"
+            aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/nabin-tamang-7bb16a444" target="_blank" rel="noopener noreferrer"
+            class="footer-social-icon" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+          </a>
+          <a href="mailto:tmgnabin932@gmail.com" class="footer-social-icon" aria-label="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Scroll back to top" title="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Interactive Toast Notification Container -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+    <span id="toast-message">Message copied!</span>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>
